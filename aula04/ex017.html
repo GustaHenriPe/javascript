@@ -32,18 +32,45 @@
 </head>
 <body>
     <header>
-        <h1>Título</h1>
+        <h1>Tabuada</h1>
     </header>
     <section>
-        <div>Testando</div>
-        <div></div>
+        <div>
+            <p>
+            Número:
+                <input type="number" name="numero" id="inumero">
+                <input type="button" value="Gerar Tabuada" onclick="calcular()">
+             </p>
+        </div>
+        <div> 
+            <select name="tabuada" id="seltab" size="10">
+                <option>Digite um número acima</option>
+            </select> 
+        </div>
     </section>
     <footer>
         <p>&copy; CursoemVideo</p>
     </footer>
     <script>
-        var agora = new Date()
-var diaSem = agora.getDay()
+        function calcular(){
+            let num = document.getElementById('inumero')
+            let tab = document.getElementById('seltab')
+            
+            if(num.value.length == 0){
+                window.alert('Por favor, digite um número!')
+            }else{
+                let n = Number(num.value)
+                tab.innerHTML = ``
+                for (var c = 1; c <= 10; c++){
+                    let item = document.createElement('option')
+                    item.text = `${n} X ${c} = ${n*c}`
+                    item.value = `tab${c}`
+                    tab.appendChild(item)
+                }
+            }
+                
+            
+        }
 
     </script>    
 </body>
